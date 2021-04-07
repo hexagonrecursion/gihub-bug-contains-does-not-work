@@ -8,7 +8,7 @@ jobs:
       - run: echo "$EVENT"
         env:
           EVENT: ${{ toJSON(github.event) }}
-      - run: echo ${{ toJSON(github.event.issue.labels.*.name) }}
-      - run: echo ${{ contains(github.event.issue.labels.*.name, 'bug') }}
-      - run: echo ${{ contains(github.event.issue.labels.*.name, 'missing-label') }}
+      - run: echo ${{ toJSON(github.event.pull_request.labels.*.name) }}
+      - run: echo ${{ contains(github.event.pull_request.labels.*.name, 'bug') }}
+      - run: echo ${{ contains(github.event.pull_request.labels.*.name, 'missing-label') }}
       
