@@ -5,7 +5,9 @@ jobs:
   poc:
     runs-on: ubuntu-20.04
     steps:
-      - run: echo '${{ toJSON(github.event) }}'
+      - run: echo "$EVENT"
+        env:
+          EVENT: ${{ toJSON(github.event) }}
       - run: echo ${{ toJSON(github.event.issue.labels.*.name) }}
       - run: echo ${{ contains(github.event.issue.labels.*.name, 'bug') }}
       - run: echo ${{ contains(github.event.issue.labels.*.name, 'missing-label') }}
